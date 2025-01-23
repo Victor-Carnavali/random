@@ -1,5 +1,5 @@
 let listDrawNumbers = [];
-let limitNumbers = 10;
+let limitNumbers = 100;
 let secretNumber = numberRandom();
 let attempts = 1;
 initialMsg();
@@ -38,15 +38,6 @@ function newGame() {
 function textOnScreen(tag, text) {
     let field = document.querySelector(tag);
     field.innerHTML = text;
-    if ('speechSynthesis' in window) {
-        let utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'es-US'; 
-        utterance.rate = 1.2; 
-        window.speechSynthesis.speak(utterance); 
-    } else {
-        console.log("Web Speech API não suportada neste navegador.");
-    }
-
 }
 
 function initialMsg() {
