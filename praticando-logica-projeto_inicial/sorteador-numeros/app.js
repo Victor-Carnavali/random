@@ -2,7 +2,7 @@ function sortear() {
     let quantidade = parseInt(document.getElementById("quantidade").value);
     let de = parseInt(document.getElementById("de").value);
     let ate = parseInt(document.getElementById("ate").value);
-    let labelSorteados = document.getElementById("resultado");
+    let resultado = document.getElementById("resultado");
 
     let sorteados = [];
     let numero;
@@ -17,9 +17,25 @@ function sortear() {
         sorteados.push(numero);
     }
 
-    labelSorteados.innerHTML = `<label class="texto__paragrafo">Números sorteados:  ${sorteados}</label>`;
+    resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados:  ${sorteados}</label>`;
+    alterarStatusBotao();
 }
 
 function sortearNumeroAleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function alterarStatusBotao() {
+    let botaoReiniciar = document.getElementById("btn-reiniciar");
+    if(botaoReiniciar.classList.contains("container__botao-desabilitado")) {
+        botaoReiniciar.classList.remove("container__botao-desabilitado");
+        botaoReiniciar.classList.add("container__botao");
+    } else {
+        botaoReiniciar.classList.add("container__botao-desabilitado");
+        botaoReiniciar.classList.remove("container__botao");
+    }
+}
+
+function reiniciar() {
+    
 }
