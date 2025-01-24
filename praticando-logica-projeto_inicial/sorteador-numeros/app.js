@@ -2,9 +2,17 @@ function sortear() {
     let quantidade = parseInt(document.getElementById("quantidade").value);
     let de = parseInt(document.getElementById("de").value);
     let ate = parseInt(document.getElementById("ate").value);
-    let numero = sortearNumeroAleatorio(de, ate);
+    let labelSorteados = document.getElementById("resultado");
 
-    console.log(numero);
+    let sorteados = [];
+    let numero;
+
+    for(let i = 0; i < quantidade; i++) {
+        numero = sortearNumeroAleatorio(de, ate);
+        sorteados.push(numero);
+    }
+
+    labelSorteados.innerHTML = sorteados;
 }
 
 function sortearNumeroAleatorio(min, max) {
