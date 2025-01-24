@@ -12,7 +12,7 @@ function sortear() {
         sorteados.push(numero);
     }
 
-    labelSorteados.innerHTML = sorteados;
+    labelSorteados.innerHTML = `<label class="texto__paragrafo">Números sorteados:  ${sorteados}</label>`;
 }
 
 function sortearNumeroAleatorio(min, max) {
