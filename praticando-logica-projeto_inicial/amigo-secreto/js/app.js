@@ -10,6 +10,9 @@ function adicionar() {
     // .test(nomeAmigo) -> retorna 'true' se houver numeros na string, e 'false' caso contrario.
     if(!isNaN(nomeAmigo) || nomeAmigo.trim() == "" || /[\d]/.test(nomeAmigo)) {
         alert("insira um nome válido");
+    } else if(listaArrayAmigos.includes(nomeAmigo)) {
+        alert("Nome ja adicionado");
+        return;
     } else {
         listaArrayAmigos.push(nomeAmigo);
         if(lista.textContent == "") {
@@ -18,12 +21,18 @@ function adicionar() {
             lista.textContent += ", " + nomeAmigo;
         }
     }
-    nomeAmigo.textContent = "";
+    
 }
 
 function sortear() {
     embaralha(listaArrayAmigos);
     let listaSorteio = document.getElementById("lista-sorteio");
+
+    if(listaArrayAmigos.length < 4) {
+        alert("insira pelo menos 4 amigos");
+        return;
+    }
+
     for(let i = 0; i < listaArrayAmigos.length; i++) {
 
         if(i == listaArrayAmigos.length - 1) {
@@ -46,3 +55,9 @@ function embaralha(lista) {
     }
 }
 
+function reiniciar() {
+    listaArrayAmigos = [];
+    document.getElementById("lista-amigos").innerHTML = "";
+    document.getElementById("lista-sorteio").innerHTML = "";
+    nomeAmigo.innerHTML = "";
+}
