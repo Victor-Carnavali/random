@@ -18,9 +18,31 @@ function adicionar() {
             lista.textContent += ", " + nomeAmigo;
         }
     }
-    nomeAmigo = "";
+    nomeAmigo.textContent = "";
 }
 
 function sortear() {
+    embaralha(listaArrayAmigos);
+    let listaSorteio = document.getElementById("lista-sorteio");
+    for(let i = 0; i < listaArrayAmigos.length; i++) {
 
+        if(i == listaArrayAmigos.length - 1) {
+            listaSorteio.innerHTML += listaArrayAmigos[i] + " -> " + listaArrayAmigos[0] + '<br>';
+        } else {
+            listaSorteio.innerHTML += listaArrayAmigos[i] + " -> " + listaArrayAmigos[i + 1] + '<br>';
+        }
+    }
 }
+
+function embaralha(lista) {
+
+    for (let indice = lista.length; indice; indice--) {
+
+        const indiceAleatorio = Math.floor(Math.random() * indice);
+
+        // atribuição via destructuring
+        [lista[indice - 1], lista[indiceAleatorio]] = 
+            [lista[indiceAleatorio], lista[indice - 1]];
+    }
+}
+
